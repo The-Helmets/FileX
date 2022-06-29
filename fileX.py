@@ -4,10 +4,11 @@ from utils import *
 print("\nWelcome to FileX! This is an interactive file management tool.")
 
 enc = Encryptor()
+arc = Archiever()
 
 # Main menu
 while True:
-    user_choice = (int(input("\nWhat would you like to do?\n1. Encrypt or Decrypt\n2. Zip or Unzip \n3.  Image Tools \n4.  Exit\n\n>>>")))
+    user_choice = (int(input("\nWhat would you like to do?\n1. Encrypt or Decrypt\n2. Zip or Unzip \n3. Image Tools \n4. Exit\n\n>>>")))
 
     if user_choice == 1:
         u_choice = int(input("\nWhat would you like to do?\n1. Encrypt\n2. Decrypt\n\n"))
@@ -24,7 +25,16 @@ while True:
             print("Decrypted")
 
     elif user_choice == 2:
-            print("WIP Archiever")
+        u_choice = int(input("\nWhat would you like to do?\n1. ZIP\n2. UNZIP\n\n"))
+        if u_choice == 1:
+            zip_name = str(input("\nPlease enter the name of the zip file to be created: ")) + '.zip'
+            arc.do_zip(zip_name)
+        
+        elif u_choice == 2:
+            zip_name = str(input("\nPlease enter the path of the zip file to be unzipped: "))
+            arc.do_unzip(zip_name)
+
+
 
     elif user_choice == 3:
             print("WIP Image Tools")
