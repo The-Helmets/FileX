@@ -1,4 +1,6 @@
+import zipfile
 from cryptography.fernet import Fernet
+from zipfile import ZipFile
 
 class Encryptor():
     def key_gen(self):
@@ -38,3 +40,19 @@ class Encryptor():
 
         with open(decrypted_file, 'wb') as file:
             file.write(decrypted)
+
+class Archiever:
+    def do_zip(self, zip_name):
+        zippy = ZipFile(zip_name, 'w')
+        file_path = str(input("Enter the address of the file"))
+        zippy.write(file_path)
+        zippy.close()
+        print("ZIP has be successfully created")
+
+    def do_unzip(self, zip_name):
+        if zipfile.is_zipfile(zip_name) is True:
+            with ZipFile(zip_name, 'r') as unzipper:
+                unzipper.extractall()
+            return True
+        else:
+            print("Not a valid zip file, Please check again!")
