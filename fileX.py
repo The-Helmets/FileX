@@ -5,6 +5,7 @@ print("\nWelcome to FileX! This is an interactive file management tool.")
 
 enc = Encryptor()
 arc = Archiever()
+img = Image()
 
 # Main menu
 while True:
@@ -34,10 +35,10 @@ while True:
             zip_name = str(input("\nPlease enter the path of the zip file to be unzipped: "))
             arc.do_unzip(zip_name)
 
-
-
     elif user_choice == 3:
-            print("WIP Image Tools")
+        img_path = str(input("\nEnter the image path:\n"))
+        img_scale = int(input("\nEnter the scaling amount, 75, 50, 25 : \n\n"))
+        img.img_resize(img_path, img_scale)
 
     elif user_choice == 4:
         print("\nGoodbye!")

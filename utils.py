@@ -1,6 +1,9 @@
 import zipfile
+import math
+
 from cryptography.fernet import Fernet
 from zipfile import ZipFile
+from PIL import Image as Image_tool
 
 class Encryptor():
     def key_gen(self):
@@ -56,3 +59,12 @@ class Archiever:
             return True
         else:
             print("Not a valid zip file, Please check again!")
+
+class Image:
+    def img_resize(self, path, scale):
+        image = Image_tool.open(path)
+        x, y = image.size
+        x2, y2 = math.floor(x-scale), math.floor(y-scale)
+        image = image.resize((x2, y2), Image_tool.ANTIALIAS)
+        image.save(path, quality = 95)
+        print("Image has been resized")
