@@ -47,7 +47,7 @@ class Encryptor():
 class Archiever:
     def do_zip(self, zip_name):
         zippy = ZipFile(zip_name, 'w')
-        file_path = str(input("Enter the address of the file"))
+        file_path = str(input("Enter the address of the file: "))
         zippy.write(file_path)
         zippy.close()
         print("ZIP has be successfully created")
